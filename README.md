@@ -22,6 +22,6 @@ cd web
 yarn install 
 ```
 ```
-./node_modules/.bin/ng serve
+yarn run start
 ```
 
