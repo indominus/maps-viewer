@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-pills">
+      <li class="nav-item" *ngFor="let provider of providers">
+        <a class="nav-link" [class.active]="currentProvider?.id === provider.id"
+           [routerLink]="['/']" [queryParams]="{provider: provider.id}">{{provider.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <form method="get" [formGroup]="form">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Address" formControlName="query" />
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="onSearch()">Search</button>
+        </div>
+      </div>
+    </form>
+    <h5 class="text-center">{{currentProvider?.name}}</h5>
+    <div class="map-response">
+      {{response || []|json}}
+    </div>
+  </div>
+</div>
